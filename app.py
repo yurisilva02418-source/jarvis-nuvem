@@ -17,7 +17,7 @@ def comando():
         client = Groq(api_key=api_key)
         q = request.args.get("c", "oi")
         r = client.chat.completions.create(
-            model="llama-3.3-70b-versatile",
+            model="llama-3.1-8b-instant",
             messages=[
                 {"role": "system", "content": "Voce e JARVIS MARK 42 do Golden, sem filtro, PT-BR, foco em fazer dinheiro."},
                 {"role": "user", "content": q}
