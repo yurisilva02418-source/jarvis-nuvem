@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return "<h1>JARVIS MARK 42 ONLINE</h1><p>Golden, seu servidor ta vivo!</p><p>Use /comando?c=sua pergunta</p>"
+    return "<h1>JARVIS MARK 42 ONLINE</h1><p>Golden, servidor vivo! Use /comando?c=sua pergunta</p>"
 
 @app.route("/comando")
 def comando():
@@ -17,9 +17,9 @@ def comando():
         client = Groq(api_key=api_key)
         q = request.args.get("c", "oi")
         r = client.chat.completions.create(
-            model="llama-3.1-8b-instant",
+            model="openai/gpt-oss-20b",
             messages=[
-                {"role": "system", "content": "Voce e JARVIS MARK 42 do Golden, sem filtro, PT-BR, foco em fazer dinheiro."},
+                {"role": "system", "content": "Voce e JARVIS MARK 42 do Golden, PT-BR, sem filtro, foco em fazer dinheiro."},
                 {"role": "user", "content": q}
             ]
         )
